@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +12,8 @@ public class Main {
         String avengers = "The Avengers: Endgame";
         String biest = "Die Schöne und das Biest";
         String saw = "SAW 6";
+
+        ArrayList<String> snackListe = new ArrayList<>();
 
         while (alterskontrolle){
             //Begruessung am Automat + Filmauswahl;
@@ -136,27 +141,41 @@ public class Main {
             System.out.println("[6] Popcorn groß");
             System.out.println("[7] Fertig!");
             System.out.println("_____________________________________________");
-            System.out.print("Bitte wählen Sie ein Produkt:               ");
+            if (snackListe.isEmpty()){
+            } else {
+                System.out.println("Ihre bisherige Auswahl:\n");
+                snackListe.sort(Comparator.naturalOrder());
+                for (String snackListeItem : snackListe) {
+                    System.out.println("- " + snackListeItem);
+                }
+            }
+            System.out.print("\nBitte wählen Sie ein Produkt:               ");
             int snackProdukt = automat.nextInt();
 
             switch (snackProdukt) {
                 case 1: System.out.println("\nSie wählten Cola klein für " + colaKleinPreis + "€.\n");
                 snackPreis = ( snackPreis + colaKleinPreis );
+                snackListe.add("Cola klein");
                 continue;
                 case 2: System.out.println("\nSie wählten Cola mitteln für " + colaMittelPreis + "€.\n");
                 snackPreis = ( snackPreis + colaMittelPreis );
+                snackListe.add("Cola mittel");
                 continue;
                 case 3: System.out.println("\nSie wählten Cola groß für " + colaGrossPreis + "€.\n");
                 snackPreis = ( snackPreis + colaGrossPreis );
+                snackListe.add("Cola groß");
                 continue;
                 case 4: System.out.println("\nSie wählten Popcorn klein für " + popcornKleinPreis + "€.\n");
                 snackPreis = ( snackPreis + popcornKleinPreis );
+                snackListe.add("Popcorn klein");
                 continue;
                 case 5: System.out.println("\nSie wählten Popcorn mittel für " + popcornMittelPreis + "€.\n");
                 snackPreis = ( snackPreis + popcornMittelPreis );
+                snackListe.add("Popcorn mittel");
                 continue;
                 case 6: System.out.println("\nSie wählten Popcorn groß für " + popcornGrossPreis + "€.\n");
                 snackPreis = ( snackPreis + popcornGrossPreis );
+                snackListe.add("Popcorn groß");
                 continue;
                 case 7:
                 snackauswahl = false;
