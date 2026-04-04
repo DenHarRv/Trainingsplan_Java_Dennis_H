@@ -16,7 +16,7 @@ public class Main {
             System.out.println("_____________________________________________");
             System.out.println("[1] " + avengers + " [FSK 12]");
             System.out.println("[2] " + biest + " [FSK 0]");
-            System.out.println("[3] " + saw + " [FSK 16]");
+            System.out.println("[3] " + saw + " [FSK 18]");
             System.out.println("_____________________________________________");
             System.out.print("Wählen Sie mit der entsprechenden Ziffer:   ");
             filmAuswahl = automat.nextInt();
