@@ -69,13 +69,12 @@ public class Main {
                 System.out.print("Schüler und Studenten bis einschließlich 28 Jahren erhalten Studentenrabatt. Sind Sie Schüler oder Student? (true/false): ");
                 student = automat.nextBoolean();
                 if (student) {
-                    System.out.println("\nSie erhalten Schüler-/Studentenrabatt von " + studentenRabatt + "€.");
+                    System.out.printf("\nSie erhalten Schüler-/Studentenrabatt von %.2f€.\n", studentenRabatt);
                 } else {
                     System.out.println("\nSie erhalten leider keinen Schüler-/Studentenrabatt.");
                 }
-            } else {
-
             }
+
         } else {
             System.out.print("Wie alt sind sie? ");
             alter = automat.nextInt();
@@ -141,8 +140,7 @@ public class Main {
             System.out.println("[6] Popcorn groß");
             System.out.println("[7] Fertig!");
             System.out.println("_____________________________________________");
-            if (snackListe.isEmpty()){
-            } else {
+            if (!snackListe.isEmpty()){
                 System.out.println("Ihre bisherige Auswahl:\n");
                 snackListe.sort(Comparator.naturalOrder());
                 for (String snackListeItem : snackListe) {
@@ -187,7 +185,6 @@ public class Main {
         ticketpreis = (ticketpreis + snackPreis);
         if (student) {
             ticketpreis = (ticketpreis - studentenRabatt);
-        } else {
         }
         System.out.print("\nDie Rechnung beträgt " + ticketpreis + "€. Wir wünschen Ihnen viel Spaß im Burgkino im Film " );
         switch (filmAuswahl) {
