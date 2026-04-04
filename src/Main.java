@@ -158,7 +158,7 @@ public class Main {
                 case 6: System.out.println("\nSie wählten Popcorn groß für " + popcornGrossPreis + "€.\n");
                 snackPreis = ( snackPreis + popcornGrossPreis );
                 continue;
-                case 7:;
+                case 7:
                 snackauswahl = false;
                 break;
             } //Hier endet der switch snackprodukt;
@@ -169,7 +169,7 @@ public class Main {
         if (student) {
             ticketpreis = (ticketpreis - studentenRabatt);
         } else {
-        };
+        }
         System.out.print("\nDie Rechnung beträgt " + ticketpreis + "€. Wir wünschen Ihnen viel Spaß im Burgkino im Film " );
         switch (filmAuswahl) {
             case 1: System.out.print(avengers + ".");
