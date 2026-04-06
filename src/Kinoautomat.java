@@ -1,9 +1,8 @@
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Main {
+public class Kinoautomat {
     public static void main(String[] args) {
         Scanner automat = new Scanner(System.in);
         boolean alterskontrolle = true;
