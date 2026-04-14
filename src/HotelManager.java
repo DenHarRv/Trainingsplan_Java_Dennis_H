@@ -16,6 +16,7 @@ public class HotelManager {
         hotel[2][0] = "Etage 2";
         hotel[3][0] = "Etage 3";
 
+
         //Aktuelle Zimmerbelegung
         System.out.println("Die aktuelle Zimmerbelegung: \n");
         for (int etage = 0; etage < hotel.length; etage++) {
@@ -25,11 +26,14 @@ public class HotelManager {
             System.out.print("\n");
         }
 
+        //Scanner einfügen
         Scanner leser = new Scanner(System.in);
+
 
         String nameGast = "";
         while (!nameGast.equalsIgnoreCase("ende")) {
 
+            //Namenseingabe und Überprüfung ob der Name länger als 3 Buchstaben ist.
             do {
                 System.out.print("\nGeben Sie den Name des Gasts ein oder schließen Sie den Tag mit \"Ende\" ab: ");
                 nameGast = leser.nextLine();
@@ -38,7 +42,10 @@ public class HotelManager {
                 }
             } while (nameGast.length() <= 3);
 
+            //Falls "ende" eingegeben wird, sorgt break dafür, dass die Schleife beendet wird.
             if (nameGast.equalsIgnoreCase("ende")) break;
+
+            //Eingabe für Etage + Zimmer
             int etageGast;
             int zimmerGast;
             do {
@@ -47,11 +54,14 @@ public class HotelManager {
                 System.out.print("Auf welches Zimmer kommt besagter Gast(1-4): ");
                 zimmerGast = leser.nextInt();
                 leser.nextLine();
+
+                //Prüft ob gültige Zaheln eingegeben wurden.
                 if (etageGast < 1 || etageGast > 3 || zimmerGast < 1 || zimmerGast > 4 ) {
                     System.out.println("Fehler: Bitte wählen Sie für die Etage und das Zimmer entsprechend eine richtige Zahl.");
                 }
             } while (etageGast < 1 || etageGast > 3 || zimmerGast < 1 || zimmerGast > 4 );
 
+            //Prüft ob das Zimmer noch frei ist und überschreibt den Slot entsprechend mit dem Gastname
             if (hotel[etageGast][zimmerGast].trim().equalsIgnoreCase("frei")) {
                 hotel[etageGast][zimmerGast] = nameGast.toUpperCase();
             } else {
@@ -59,6 +69,7 @@ public class HotelManager {
                 continue;
             }
 
+            //Gibt nochmals die aktuelle Zimmerbelegung aus und wirft den User wieder an den Anfang
             System.out.println("\nDie aktuelle Zimmerbelegung: \n");
             for (int etage = 0; etage < hotel.length; etage++) {
                 for (int zimmer = 0; zimmer < hotel[etage].length; zimmer++) {
