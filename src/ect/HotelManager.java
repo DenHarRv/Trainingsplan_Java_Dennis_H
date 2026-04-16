@@ -1,3 +1,5 @@
+package ect;
+
 import java.util.Scanner;
 
 public class HotelManager {
