@@ -6,9 +6,9 @@ public class Bankkonto {
     private double kontostand;
 
     //Konstruktor
-    public Bankkonto(String kundenName, double kontostand) {
+    public Bankkonto(String kundenName, double ersteinzahlung) {
         this.kundenName = kundenName;
-        this.kontostand = kontostand;
+        this.einzahlen(ersteinzahlung);
     }
 
     //Getter

@@ -7,6 +7,8 @@ public class Bankautomat {
 
         Bankkonto meinKonto = new Bankkonto("Dagobert", 1000.00);
 
+
+
         System.out.printf("Willkommen %s! Dein Kontostand ist: %.2f Euro.\n", meinKonto.kundenName, meinKonto.getKontostand());
 
         System.out.println("Versuche 200 Euro abzuheben...");
