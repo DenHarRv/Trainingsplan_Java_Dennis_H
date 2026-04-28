@@ -11,17 +11,10 @@ public class Kaffeemaschine {
         this.wasserstand = 0;
     }
 
-    public Kaffeemaschine(int wasserstand) {
-        this.modell = "Default";
-        this.wasserstand = wasserstand;
-    }
-
-    public Kaffeemaschine(String name, String farbe) {
-        this.modell = name;
-        this.farbe = farbe;
-    }
-    
     public int getWasserstand() { return this.wasserstand;
     }
 
+    public void wasserEinfuellen(int menge) {
+
+    }
 }
