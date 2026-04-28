@@ -7,23 +7,21 @@ public class Bankautomat {
 
         Bankkonto meinKonto = new Bankkonto("Dagobert", 1000.00);
 
-
-
-        System.out.printf("Willkommen %s! Dein Kontostand ist: %.2f Euro.\n", meinKonto.kundenName, meinKonto.getKontostand());
+        System.out.printf("Willkommen %s! Ihr Kontostand beträgt: %.2f Euro.\n", meinKonto.kundenName, meinKonto.getKontostand());
 
         System.out.println("Versuche 200 Euro abzuheben...");
         meinKonto.abheben(200.00);
 
-        System.out.println("Veruche 5000 Euro abzuheben...");
+        System.out.println("Versuche 5000 Euro abzuheben...");
         meinKonto.abheben(5000.00);
 
         Scanner leser = new Scanner(System.in);
-        System.out.print("Wie viel möchtest du einzahlen? ");
+        System.out.print("Wie viel möchten Sie einzahlen? ");
         double betrag = leser.nextDouble();
         leser.nextLine();
         meinKonto.einzahlen(betrag);
 
-        System.out.print("Wollen Sie ihren aktuellen Kontostand checken? ja / nein: ");
+        System.out.print("Wollen Sie Ihren aktuellen Kontostand checken? ja / nein: ");
         String kontoChecken = leser.nextLine();
         kontoChecken = kontoChecken.toLowerCase();
 

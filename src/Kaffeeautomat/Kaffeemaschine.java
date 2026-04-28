@@ -4,7 +4,6 @@ public class Kaffeemaschine {
 
     String modell;
     private int wasserstand;
-    String farbe;
 
     public Kaffeemaschine(String name) {
         this.modell = name;
@@ -15,6 +14,12 @@ public class Kaffeemaschine {
     }
 
     public void wasserEinfuellen(int menge) {
-
+        if (wasserstand + menge >= 1000) {
+            this.wasserstand = 1000;
+            System.out.println("Achtung! Wassertank voll! Das restliche Wasser läuft über!");
+        } else {
+            this.wasserstand += menge;
+            System.out.println("Wasser wurde aufgefüllt!");
+        }
     }
 }

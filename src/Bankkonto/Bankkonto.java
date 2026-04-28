@@ -22,7 +22,7 @@ public class Bankkonto {
             this.kontostand -= betrag;
             System.out.printf("Erfolgreich %.2f Euro abgehoben. Neuer Stand: %.2f Euro.\n", betrag, this.kontostand);
         } else {
-            System.out.println("Abbruch! Nicht genügen Guthaben auf dem Konto.");
+            System.out.println("Abbruch! Nicht genügend Guthaben auf dem Konto.");
         }
     }
 
@@ -31,7 +31,7 @@ public class Bankkonto {
             this.kontostand += betrag;
             System.out.printf("Du hast erfolgreich %.2f Euro eingezahlt. Neuer Kontostand: %.2f Euro!\n", betrag, this.kontostand);
         } else {
-            System.out.println("Falscher Wert! Es müsseb mindestens 5,00 Euro eingezahlt werden.");
+            System.out.println("Falscher Wert! Es müssen mindestens 5,00 Euro eingezahlt werden.");
         }
     }
 }
