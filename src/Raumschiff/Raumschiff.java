@@ -32,6 +32,6 @@ public class Raumschiff {
     }
 
     public void triebwerkeStarten() {
-        System.out.println("Wusch! Der " + name + " hebt ab und ist kampfbereit!");
+        System.out.println("Wusch! Die/Der " + name + " hebt ab und ist kampfbereit!");
     }
 }

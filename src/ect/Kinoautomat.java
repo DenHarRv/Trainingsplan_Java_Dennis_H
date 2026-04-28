@@ -28,33 +28,32 @@ public class Kinoautomat {
             filmAuswahl = automat.nextInt();
 
             //Altersabfrage;
-            System.out.print("\nSehr schön, Sie haben sich für ");
             switch (filmAuswahl) {
                 case 1:
-                    System.out.print(avengers + " entschieden. Aufgrund der FSK müssen wir iher Alter prüfen, wie alt sind Sie? ");
+                    System.out.print("Sehr schön, Sie haben sich für " + avengers + " entschieden. Aufgrund der FSK müssen wir Ihr Alter prüfen, wie alt sind Sie? ");
                     alter = automat.nextInt();
                     if (alter >= 12) {
-                        System.out.println("\nSie sind alt genug um den Film anzuschauen.");
+                        System.out.println("\nSie sind alt genug, um den Film anzuschauen.");
                         alterskontrolle = false;
                     } else {
-                        System.out.println("\nTut mir leid, Sie sind zu jung für diesen Film, bitte wählen Sie einen anderen Film aus.");
+                        System.out.println("\nTut mir leid, Sie sind zu jung für diesen Film. Bitte wählen Sie einen anderen Film aus.");
                         continue;
                     }
                     break;
 
                 case 2:
-                    System.out.println(biest + " entschieden.");
+                    System.out.println("Sehr schön, Sie haben sich für " + biest + " entschieden.");
                     alterskontrolle = false;
                     break;
 
                 case 3:
-                    System.out.print(saw + " entschieden. Aufgrund der FSK müssen wir iher Alter prüfen, wie alt sind Sie? ");
+                    System.out.print("Sehr schön, Sie haben sich für " + saw + " entschieden. Aufgrund der FSK müssen wir Ihr Alter prüfen, wie alt sind Sie? ");
                     alter = automat.nextInt();
                     if (alter >= 18) {
-                        System.out.println("\nSie sind alt genug um den Film anzuschauen.");
+                        System.out.println("\nSie sind alt genug, um den Film anzuschauen.");
                         alterskontrolle = false;
                     } else {
-                        System.out.println("\nTut mir leid, Sie sind zu jung für diesen Film, bitte wählen Sie einen anderen Film aus.");
+                        System.out.println("\nTut mir leid, Sie sind zu jung für diesen Film. Bitte wählen Sie einen anderen Film aus.");
                         continue;
                     }
                     break;
@@ -67,7 +66,7 @@ public class Kinoautomat {
 
         if (alter != 0) {
             if (alter <29) {
-                System.out.print("Schüler und Studenten bis einschließlich 28 Jahren erhalten Studentenrabatt. Sind Sie Schüler oder Student? (true/false): ");
+                System.out.print("Schüler und Studenten bis einschließlich 28 Jahre erhalten Studentenrabatt. Sind Sie Schüler oder Student? (true/false): ");
                 student = automat.nextBoolean();
                 if (student) {
                     System.out.printf("\nSie erhalten Schüler-/Studentenrabatt von %.2f€.\n", studentenRabatt);
@@ -80,7 +79,7 @@ public class Kinoautomat {
             System.out.print("Wie alt sind sie? ");
             alter = automat.nextInt();
             if (alter <29) {
-                System.out.println("\nWenn Sie Schüler oder Student sind, erhalten Sie bis einschließlich 28 Jahren " + studentenRabatt + "€ Rabatt.");
+                System.out.println("\nWenn Sie Schüler oder Student sind, erhalten Sie bis einschließlich 28 Jahre " + studentenRabatt + "€ Rabatt.");
                 System.out.print("Sind Sie Schüler oder Student (true/false)? ");
                 student = automat.nextBoolean();
                 if (student) {
@@ -89,19 +88,19 @@ public class Kinoautomat {
                     System.out.println("\nSie erhalten leider keinen Schüler-/Studentenrabatt.");
                 }
             } else {
-                System.out.println("\nTut mir leid, dann sind Sie leider nicht alt genug für den Schüler oder Schüler-/Studentenbabatt.");
+                System.out.println("\nTut mir leid, dann sind Sie leider nicht alt genug für den Schüler oder Schüler-/Studentenrabatt.");
             }
         }
 
-        //Hier wird noch gefragt, in welchem Teil die Sitze gewünscht sind und entsprechend wird der Preis des Grundticket angepasst;
+        //Hier wird noch gefragt, in welchem Teil die Sitze gewünscht sind und entsprechend wird der Preis des Grundtickets angepasst;
         double ticketpreis = 0;
         double vorderesAbteilPreis = 12.50;
         double hinteresAbteilPreis = 14.50;
 
-        System.out.println("\nWo wünschen Sie zu sitzn? Wählen Sie mit entsprechender Ziffer ihren Sitzplatz:");
+        System.out.println("\nWo wünschen Sie zu sitzen? Wählen Sie mit entsprechender Ziffer Ihren Sitzplatz:");
         System.out.println("______________________________________________");
-        System.out.println("[1] Vorderes Abteil - " + vorderesAbteilPreis + "€.");
-        System.out.println("[2] Hinteres Abteil - " + hinteresAbteilPreis + "€.");
+        System.out.printf("[1] Vorderes Abteil - %.2f€.\n", vorderesAbteilPreis);
+        System.out.printf("[2] Hinteres Abteil - %.2f€.\n", hinteresAbteilPreis);
         System.out.println("_____________________________________________");
         System.out.print("Bitte wählen Sie:                           ");
         int sitzplatz = automat.nextInt();
@@ -182,12 +181,12 @@ public class Kinoautomat {
             } //Hier endet der switch snackprodukt;
         } //Hier endet while snackautomat;
 
-        // Ab hier wird der Bon zusammengestellt und die Rechnung dem Kunde gezeigt.
+        // Ab hier wird der Bon zusammengestellt und die Rechnung dem Kunden gezeigt.
         ticketpreis = (ticketpreis + snackPreis);
         if (student) {
             ticketpreis = (ticketpreis - studentenRabatt);
         }
-        System.out.print("\nDie Rechnung beträgt " + ticketpreis + "€. Wir wünschen Ihnen viel Spaß im Burgkino im Film " );
+        System.out.printf("\nDie Rechnung beträgt %.2f€. Wir wünschen Ihnen viel Spaß im Burg-Kino beim Film.\n", ticketpreis );
         switch (filmAuswahl) {
             case 1: System.out.print(avengers + ".");
             break;

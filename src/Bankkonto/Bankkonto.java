@@ -16,7 +16,7 @@ public class Bankkonto {
         return this.kontostand;
     }
 
-    //Setter
+
     public void abheben(double betrag) {
         if (betrag <= this.kontostand) {
             this.kontostand -= betrag;

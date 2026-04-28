@@ -35,9 +35,9 @@ public class HotelManager {
         String nameGast = "";
         while (!nameGast.equalsIgnoreCase("ende")) {
 
-            //Namenseingabe und Überprüfung ob der Name länger als 3 Buchstaben ist.
+            //Namenseingabe und Überprüfung, ob der Name länger als 3 Buchstaben ist.
             do {
-                System.out.print("\nGeben Sie den Name des Gasts ein oder schließen Sie den Tag mit \"Ende\" ab: ");
+                System.out.print("\nGeben Sie den Name des Gastes ein oder schließen Sie den Tag mit \"Ende\" ab: ");
                 nameGast = leser.nextLine();
                 if (nameGast.length() <= 3) {
                     System.out.println("Fehler: Der Name muss länger als 3 Zeichen sein!");
@@ -53,17 +53,17 @@ public class HotelManager {
             do {
                 System.out.print("Auf welche Etage kommt besagter Gast (1-3): ");
                 etageGast = leser.nextInt();
-                System.out.print("Auf welches Zimmer kommt besagter Gast(1-4): ");
+                System.out.print("In welches Zimmer kommt besagter Gast(1-4): ");
                 zimmerGast = leser.nextInt();
                 leser.nextLine();
 
-                //Prüft ob gültige Zaheln eingegeben wurden.
+                //Prüft ob gültige Zahlen eingegeben wurden.
                 if (etageGast < 1 || etageGast > 3 || zimmerGast < 1 || zimmerGast > 4 ) {
                     System.out.println("Fehler: Bitte wählen Sie für die Etage und das Zimmer entsprechend eine richtige Zahl.");
                 }
             } while (etageGast < 1 || etageGast > 3 || zimmerGast < 1 || zimmerGast > 4 );
 
-            //Prüft ob das Zimmer noch frei ist und überschreibt den Slot entsprechend mit dem Gastname
+            //Prüft, ob das Zimmer noch frei ist und überschreibt den Slot entsprechend mit dem Gastnamen
             if (hotel[etageGast][zimmerGast].trim().equalsIgnoreCase("frei")) {
                 hotel[etageGast][zimmerGast] = nameGast.toUpperCase();
             } else {
