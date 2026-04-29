@@ -10,11 +10,10 @@ public class Kaffeemaschine {
         this.wasserstand = 0;
     }
 
-    public int getWasserstand() { return this.wasserstand;
-    }
+    public int getWasserstand() { return this.wasserstand;}
 
     public void wasserEinfuellen(int menge) {
-        if (wasserstand + menge >= 1000) {
+        if (this.wasserstand + menge >= 1000) {
             this.wasserstand = 1000;
             System.out.println("Achtung! Wassertank voll! Das restliche Wasser läuft über!");
         } else {
