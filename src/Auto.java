@@ -55,22 +55,18 @@ public class Auto {
                     //Wenn die Geschwindigkeit gleich/unter 250 ist.
                     this.geschwindigkeit += beschleunigen;
                     System.out.println("Sie fahren nun: " + this.geschwindigkeit + "km/h.");
-                    break;
                 } else {
                     //Wenn die max. Geschwindigkeit überschritten ist.
                     System.out.println("ACHTUNG: Sie haben die Maximalgeschwindigkeit von 250km/h erreicht.");
                     this.geschwindigkeit = 250;
-                    break;
                     }
             } else {
                 //Wenn der tank leer ist.
                 System.out.println("Du musst erst wieder tanken!");
-                break;
             }
         } else {
             //Wenn der Motor aus ist.
             System.out.println("Sie müssen erst den Motor starten!");
-            break;
         }
 
     }
