@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class Auto {
+
+    Scanner leser = new Scanner(System.in);
 
     String marke;
     private double tankstand;
@@ -17,23 +21,28 @@ public class Auto {
     public int getGeschwindigkeit() {return this.geschwindigkeit;}
     public boolean getMotorAn() {return this.motorAn;}
 
-    public void tanken(double menge) {
+
+    //Methode - Tanken
+    public void tanken() {
+        System.out.print("Wie viel möchten Sie tanken: ");
+        double menge = leser.nextDouble();
         if(menge <= 0) {
-            System.out.println("Ungültige Menge! Du kannst nicht negativ tanken.");
+            System.out.println("\nUngültige Menge! Du kannst nicht negativ tanken.");
             return;
         }
         double hinzugefuegterTank = 60 - this.tankstand;
         if (this.tankstand + menge >= 60) {
             //Tank wird überfüllt, stoppt jedoch, wenn 60l erreicht sind.
-            System.out.printf("Der Tank ist voll, du hast %.2f Liter getankt.\n", hinzugefuegterTank);
+            System.out.printf("\nDer Tank ist voll, du hast %.2f Liter getankt.\n", hinzugefuegterTank);
             this.tankstand = 60;
         } else {
             //Tank wird nicht überfüllt.
             this.tankstand += menge;
-            System.out.printf("Du hast nun %.2f Liter getankt. Dein Tank hat nun %.2f Liter Sprit.\n", menge, this.tankstand);
+            System.out.printf("\nDu hast nun %.2f Liter getankt. Dein Tank hat nun %.2f Liter Sprit.\n", menge, this.tankstand);
         }
     }
 
+    //Methode - Motor an oder aus
     public void motorSchalten(){
         if (this.motorAn) {
             //Motor geht aus.
@@ -45,20 +54,28 @@ public class Auto {
             this.motorAn = true;
         }
     }
-// WICHTIG: REGEL 4 noch einbauen, pro 10km/h beschleunigung verbraucht das Auto 0.5 L Benzin
-    public void gasGeben(int beschleunigen) {
+
+    //Methode - Gas geben
+    public void gasGeben() {
+        double beschleunigt = 0;
+        System.out.print("Wie viel km/h möchten Sie beschleunigen: ");
+        int beschleunigen = leser.nextInt();
         if (this.motorAn) {
             //Wenn der Motor an ist.
             if (this.tankstand > 0.00) {
                 //Wenn noch etwas im Tank ist.
-                if (this.geschwindigkeit + beschleunigen <= 250) {
+                if (this.geschwindigkeit + beschleunigen < 250) {
                     //Wenn die Geschwindigkeit gleich/unter 250 ist.
                     this.geschwindigkeit += beschleunigen;
-                    System.out.println("Sie fahren nun: " + this.geschwindigkeit + "km/h.");
+                    System.out.println("\nSie fahren nun: " + this.geschwindigkeit + "km/h.");
+                    beschleunigt = beschleunigen;
+                    this.tankstand -= (beschleunigt / 10 * 0.5);
                 } else {
                     //Wenn die max. Geschwindigkeit überschritten ist.
-                    System.out.println("ACHTUNG: Sie haben die Maximalgeschwindigkeit von 250km/h erreicht.");
+                    System.out.println("\nACHTUNG: Sie haben die Maximalgeschwindigkeit von 250km/h erreicht.");
+                    beschleunigt = 250 - this.geschwindigkeit;
                     this.geschwindigkeit = 250;
+                    this.tankstand -= (beschleunigt / 10 * 0.5);
                     }
             } else {
                 //Wenn der tank leer ist.
@@ -68,6 +85,26 @@ public class Auto {
             //Wenn der Motor aus ist.
             System.out.println("Sie müssen erst den Motor starten!");
         }
+        if (this.tankstand <= 0) {
+            System.out.println("Der Tank ist leer, das Auto geht aus und wird langsamer.");
+            this.motorAn = false;
+            this.tankstand = 0;
+            this.geschwindigkeit = 0;
+        }
+    }
 
+    //Methode - Gibt Status zum Auto wieder
+    public void getStatus() {
+        if (motorAn) {
+        System.out.printf("Marke: %s | Tempo: %d | Tank: %.2f | Motor: an.\n", this.marke, this.geschwindigkeit, this.tankstand);
+        } else {
+            System.out.printf("Marke: %s | Tempo: %d | Tank: %.2f | Motor: aus.\n", this.marke, this.geschwindigkeit, this.tankstand);
+        }
+    }
+
+    //Methode - Bremst das Auto auf 0km/h ab.
+    public void bremsen() {
+        System.out.println("Das Auto kommt erfolgreich zum Stehen.");
+        this.geschwindigkeit = 0;
     }
 }

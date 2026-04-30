@@ -3,25 +3,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Auto auto1 = new Auto("Audi");
-
         Scanner leser = new Scanner(System.in);
 
-        System.out.print("Wie viel wollen Sie tanken: ");
-        double tanken = leser.nextDouble();
-        auto1.tanken(tanken);
+        //Hier wird das Auto erstellt, User kann Namen bestimmen:
+        System.out.print("Welche Marken wollen Sie fahren (Name des Fahrzeugs eingeben): ");
+        String autoName = leser.nextLine();
+        Auto auto1 = new Auto(autoName);
 
-        auto1.motorSchalten();
-        auto1.motorSchalten();
+        //Hier bereite ich autoBedienen für auto1 vor
+        AutoMenu menu = new AutoMenu();
 
-        System.out.print("Wie viel wollen Sie beschleunigen: ");
-        int beschleunigen = leser.nextInt();
-        auto1.gasGeben(beschleunigen);
-
-        auto1.motorSchalten();
-
-        System.out.print("Wie viel wollen Sie beschleunigen: ");
-        beschleunigen = leser.nextInt();
-        auto1.gasGeben(beschleunigen);
+        //Nach einem Einleitungssatz wird hier die Menü Methode abgerufen
+        System.out.printf("\nWillkommen auf der Teststrecke! Haben Sie schon Lust ihren %s auszuprobieren?\n", auto1.marke);
+        menu.autoBedienen(auto1);
     }
 }
