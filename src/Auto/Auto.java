@@ -109,4 +109,5 @@ public class Auto {
         System.out.println("Das Auto kommt erfolgreich zum Stehen.");
         this.geschwindigkeit = 0;
     }
+
 }
