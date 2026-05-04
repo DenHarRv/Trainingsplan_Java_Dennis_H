@@ -1,3 +1,5 @@
+package Auto;
+
 import java.util.Scanner;
 
 public class Auto {
