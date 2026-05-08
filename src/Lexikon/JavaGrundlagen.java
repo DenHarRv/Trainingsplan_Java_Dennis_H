@@ -126,5 +126,16 @@ public class JavaGrundlagen {
         }
         //================================================
 
+
+
+        //================================================
+        //Array
+        //================================================
+        //Eine Liste für erstellte Objekte, hier aus dem Beispiel aus "Rennstrecke"
+        Auto[] garage = new Auto[3];
+        garage[0] = new Auto("Audi");
+        garage[1] = new Auto("BMW");
+        garage[2] = new Auto("VW");
+        //================================================
     }
 }
